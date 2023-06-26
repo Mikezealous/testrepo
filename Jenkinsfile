@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Git Clone') {
             steps {
-                git branch: 'main', url: 'https://github.com/ken4class/testrepo'
+                git branch: 'main', url: 'https://github.com/Mikezealous/testrepo'
             }
         }
         
@@ -47,7 +47,7 @@ pipeline {
                type: 'war']], 
                credentialsId: 'nexus', 
                groupId: 'com.example', 
-               nexusUrl: '3.88.130.147:8081', 
+               nexusUrl: '18.119.0.91:8081', 
                nexusVersion: 'nexus3', 
                protocol: 'http', 
                repository: 'my-repo',
@@ -57,7 +57,7 @@ pipeline {
         
         stage('Deploy to Tomcat') {
             steps {
-               deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://54.90.95.130:8080')], contextPath: 'demo', war: 'target/RegistrationApp-*.war'
+               deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http:// 52.15.222.100:8080')], contextPath: 'demo', war: 'target/RegistrationApp-*.war'
             }
         }
     }
