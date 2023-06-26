@@ -51,13 +51,13 @@ pipeline {
                nexusVersion: 'nexus3', 
                protocol: 'http', 
                repository: 'my-repo',
-               version: '2.0'
+               version: '$BUILD_NUMBER'
             }
         }
         
         stage('Deploy to Tomcat') {
             steps {
-               deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http:// 52.15.222.100:8080')], contextPath: 'demo', war: '/RegistrationApp-*.war'
+               deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://52.15.222.100:8080')], contextPath: 'demo', war: 'target/RegistrationApp-*.war'
             }
         }
     }
